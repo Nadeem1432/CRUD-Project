@@ -1,0 +1,4 @@
+
+python3
+sqlite3
+Django==3.1.2

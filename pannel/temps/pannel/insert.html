@@ -1,0 +1,78 @@
+{% extends 'pannel/base.html' %}
+{% block title %}Insert Student{% endblock %}
+
+
+
+{% block body %}
+        {% load static %}
+
+      <div class="progressWrp">
+          <div class="progressInn">
+              <div class="progressImg">
+                  <img src="{% static 'images/circles.svg' %}" alt="img-responsive" />
+                  <p>Please Wait</p>
+              </div>
+          </div>
+      </div>
+
+    <div class="login-box">
+
+      <div class="login-box-body" style="border-radius:6px;">
+
+
+
+
+     <form id="login_form" method="POST" action="{% url 'insert_student'    %}" enctype="multipart/form-data" class="box">
+
+      <h1>   <a href="{% url 'insert_student' %}">+ Student</a></h1>
+
+       <p  class="login-box-msg" style="color:white">Insert a new student  </p>
+       <p style="color: red;" class="login-box-msg"><i>{{ error}}</i></p>
+
+
+        {% csrf_token %}
+
+        <div class="form-group has-feedback">
+          <small>Name</small>
+            <input type="text" class="form-control input-field" name="name"  />
+        </div>
+        <div class="form-group has-feedback">
+          <small>Roll No.</small>
+            <input type="text" class="form-control input-field" name="roll"  />
+        </div>
+        <div class="form-group has-feedback">
+          <small>Phone</small>
+            <input type="text" class="form-control input-field" name="phone"/>
+        </div>
+      <div class="form-group has-feedback">
+          <small>Age</small>
+            <input type="text" class="form-control input-field" name="age"   />
+        </div>
+
+      <div class="form-group has-feedback">
+          <small style="float:left">Address</small>
+          <textarea rows="7" class="form-control input-field" id="about" name="address" required ></textarea>
+        </div>
+
+
+
+
+
+        <div class="row">
+             <div class="col-md-6">
+                 <input type="submit"  class="btn btn-success btn-block btn-flat"  value="Add" style="border-radius:5px;background: #607D8B;"/>
+             </div><!-- /.col -->
+             <div class="col-md-6">
+                 <a href="{% url 'view' %}" class="btn btn-danger btn-block btn-flat"> cancel   </a>
+             </div><!-- /.col -->
+         </div>
+
+     </form>
+
+
+
+
+</div><!-- /.login-box-body -->
+    </div><!-- /.login-box -->
+
+{% endblock %}
